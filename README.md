@@ -1,6 +1,6 @@
-# The Ranking Android dev test
+# The Ranking iOS/Android dev test
 
-This repository is aimed to test future Android developers skills. We hope you enjoy as much as we do coding and pushing your skills with new challenges.
+This repository is aimed to test future iOS/Android developers skills. We hope you enjoy as much as we do coding and pushing your skills with new challenges.
 
 ## Introduction
 In order to evaluate your skills and coding style we would like you to develop a small application that consumes [HERE map API](https://developer.here.com/rest-apis/documentation/transit/topics/overview.html).
@@ -20,6 +20,14 @@ Check out the [HERE documentation](https://developer.here.com/rest-apis/document
 * In your pull request, add a description of the solution you have implemented and any other issue we should take into account at the time of review.
 
 ### Requirements
+## iOS
+* The candidate is allowed to use third party libraries. 
+* The candidate should use both objective-c and swift in the project to demonstrate you are expert of the languages
+* The candidate must chose the UI that fits better, but the Views must be done using both SwiftUI (imperative programming) and NIB (declarative programming) for each view.
+* The candidate must use MVVM as the app architecutre pattern
+* There is no time limit for the test but plesae do your best to finish it within 3 hours once started coding.
+
+## Android
 * The candidate is allowed to use third party libraries. 
 * The candidate should use both java and kotlin in the project to demonstrate you are expert of the languages
 * The candidate must chose the UI that fits better, but the Views must be done using both jetpack compose (imperative programming) and xml (declarative programming) for each view. 
