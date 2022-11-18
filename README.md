@@ -15,6 +15,7 @@ We would like to have an small application that to achieve:
 Check out the [HERE documentation](https://developer.here.com/rest-apis/documentation/transit/topics/overview.html) to know how to get the API information. Please sign up a free account at [here](https://developer.here.com/plans/api/consumer-mapping) to start with. We recommend you to visit [this link](https://developer.here.com/api-explorer/rest) and [Rest APIs](https://developer.here.com/develop/rest-apis) for more api details.
 
 ### Procedure
+* You do not need to do both iOS and Android, you pick the one, either iOS or Android, that you are most comformable with. 
 * You will be added to the repo to start with, you will be creating the project and using github to track each commit. 
 * When you think your app matches the requirements and you are proud of the code, you are going to push, make a pull request to this repository. We will review your code and we will likely make some comments about your code.
 * In your pull request, add a description of the solution you have implemented and any other issue we should take into account at the time of review.
