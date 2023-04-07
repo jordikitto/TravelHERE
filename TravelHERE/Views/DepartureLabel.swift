@@ -14,8 +14,9 @@ struct DepartureLabel: View {
         HStack {
             Text(departure.transport.shortName)
                 .bold()
+                .foregroundColor(departure.transport.textColor)
                 .padding(10)
-                .background(Color.gray.cornerRadius(10))
+                .background(departure.transport.color.cornerRadius(10))
             
             Text(departure.transport.longName)
             Spacer()

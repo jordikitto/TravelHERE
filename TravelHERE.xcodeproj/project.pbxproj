@@ -25,6 +25,7 @@
 		D140A64929DFE3B9009E42B5 /* DepartureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64829DFE3B9009E42B5 /* DepartureLabel.swift */; };
 		D140A64B29DFE5FF009E42B5 /* StationView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */; };
 		D140A64D29DFE8C8009E42B5 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */; };
+		D140A64F29DFEDFE009E42B5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64E29DFEDFE009E42B5 /* Color+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		D140A64829DFE3B9009E42B5 /* DepartureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureLabel.swift; sourceTree = "<group>"; };
 		D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.ViewModel.swift; sourceTree = "<group>"; };
 		D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		D140A64E29DFEDFE009E42B5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		D140A63B29DFA6BA009E42B5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D140A64E29DFEDFE009E42B5 /* Color+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D140A63729DF9941009E42B5 /* LocationService.swift in Sources */,
+				D140A64F29DFEDFE009E42B5 /* Color+Extension.swift in Sources */,
 				D140A63F29DFAB23009E42B5 /* BoardResponse.swift in Sources */,
 				D140A63529DF982B009E42B5 /* DeparturesView.ViewModel.swift in Sources */,
 				D140A64929DFE3B9009E42B5 /* DepartureLabel.swift in Sources */,
