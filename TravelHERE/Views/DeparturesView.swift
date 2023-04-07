@@ -12,17 +12,28 @@ struct DeparturesView: View {
     @StateObject var viewModel: ViewModel = .init()
     
     var body: some View {
-        VStack {
-            LocationButton(.currentLocation) {
-                viewModel.requestLocation()
+        NavigationView {
+            VStack(alignment: .leading, spacing: 10) {
+                LocationButton(.currentLocation) {
+                    viewModel.requestLocation()
+                }
+                .symbolVariant(.fill)
+                .labelStyle(.titleAndIcon)
+                .foregroundColor(.white)
+                .cornerRadius(20)
+                .disabled(viewModel.state.isLoading)
+                .padding(.horizontal)
+                
+                List(viewModel.places) { place in
+                    NavigationLink {
+                        Text(place.name)
+                    } label: {
+                        Text(place.name)
+                    }
+                }
             }
-            .symbolVariant(.fill)
-            .labelStyle(.titleAndIcon)
-            .foregroundColor(.white)
-            .cornerRadius(20)
-            .disabled(viewModel.state.isLoading)
+            .navigationTitle("Departures")
         }
-        .padding()
     }
 }
 

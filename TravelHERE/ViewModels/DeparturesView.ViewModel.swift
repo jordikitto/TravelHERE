@@ -13,6 +13,7 @@ extension DeparturesView {
     final class ViewModel: ObservableObject {
         @Published private(set) var locationManager: LocationService
         @Published private(set) var state: State
+        @Published private(set) var places: [Place]
         
         private let hereService: HereService
         private var cancellables = Set<AnyCancellable>()
@@ -23,6 +24,7 @@ extension DeparturesView {
         ) {
             self.locationManager = locationManager
             self.hereService = hereService
+            self.places = []
             self.state = .locationUnknown
             
             locationManager.$location
@@ -42,9 +44,15 @@ extension DeparturesView {
             Task {
                 do {
                     let boards = try await hereService.getDepartures(location: location)
-                    print(boards)
+                    await MainActor.run { places = boards.map(\.place) }
                 } catch {
-                    print(error.localizedDescription)
+                    if let localisedError = error as? LocalizedError,
+                       let errorDescription = localisedError.errorDescription
+                    {
+                        print(errorDescription)
+                    } else {
+                        print(error.localizedDescription)
+                    }
                 }
                 
                 await MainActor.run { state = .loaded }

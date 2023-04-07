@@ -17,7 +17,8 @@
 		D140A63529DF982B009E42B5 /* DeparturesView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63429DF982B009E42B5 /* DeparturesView.ViewModel.swift */; };
 		D140A63729DF9941009E42B5 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63629DF9941009E42B5 /* LocationService.swift */; };
 		D140A63929DFA3C0009E42B5 /* HereService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63829DFA3C0009E42B5 /* HereService.swift */; };
-		D140A63F29DFAB23009E42B5 /* DeparturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63E29DFAB23009E42B5 /* DeparturesResponse.swift */; };
+		D140A63F29DFAB23009E42B5 /* BoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63E29DFAB23009E42B5 /* BoardResponse.swift */; };
+		D140A64129DFB905009E42B5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64029DFB905009E42B5 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,8 @@
 		D140A63429DF982B009E42B5 /* DeparturesView.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesView.ViewModel.swift; sourceTree = "<group>"; };
 		D140A63629DF9941009E42B5 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		D140A63829DFA3C0009E42B5 /* HereService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereService.swift; sourceTree = "<group>"; };
-		D140A63E29DFAB23009E42B5 /* DeparturesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesResponse.swift; sourceTree = "<group>"; };
+		D140A63E29DFAB23009E42B5 /* BoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResponse.swift; sourceTree = "<group>"; };
+		D140A64029DFB905009E42B5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +144,8 @@
 		D140A63129DF97CA009E42B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D140A63E29DFAB23009E42B5 /* DeparturesResponse.swift */,
+				D140A63E29DFAB23009E42B5 /* BoardResponse.swift */,
+				D140A64029DFB905009E42B5 /* APIError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,11 +313,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D140A63729DF9941009E42B5 /* LocationService.swift in Sources */,
-				D140A63F29DFAB23009E42B5 /* DeparturesResponse.swift in Sources */,
+				D140A63F29DFAB23009E42B5 /* BoardResponse.swift in Sources */,
 				D140A63529DF982B009E42B5 /* DeparturesView.ViewModel.swift in Sources */,
 				D140A63929DFA3C0009E42B5 /* HereService.swift in Sources */,
 				D140A60A29DF8CC3009E42B5 /* DeparturesView.swift in Sources */,
 				D140A60829DF8CC3009E42B5 /* TravelHEREApp.swift in Sources */,
+				D140A64129DFB905009E42B5 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

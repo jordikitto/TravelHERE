@@ -18,22 +18,25 @@ final class HereService {
     private init() { }
     
     func getDepartures(location: CLLocationCoordinate2D) async throws -> [Board] {
-        guard let departuresURL = departuresURL(location: location) else { throw URLError(.badURL) }
+        guard let departuresURL = departuresURL(location: location) else { throw APIError.badURL }
         
-        print(departuresURL.absoluteString)
         let (data, response) = try await URLSession.shared.data(from: departuresURL)
         
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            throw URLError(.badServerResponse)
+        let statusCode = (response as? HTTPURLResponse)?.statusCode
+        guard statusCode == 200 else { throw APIError.badStatusCode(statusCode) }
+        
+        guard !data.isEmpty else { throw APIError.emptyData }
+        
+        if let string = String(data: data, encoding: .utf8) {
+            print("Response data: \(string)")
+        } else {
+            print("Unable to convert response data to string")
         }
         
         let decoder = JSONDecoder()
-        do {
-            let boards = try decoder.decode([Board].self, from: data)
-            return boards
-        } catch {
-            throw URLError(.cannotParseResponse)
-        }
+        decoder.dateDecodingStrategy = .iso8601
+        let boardsResponse = try decoder.decode(BoardResponse.self, from: data)
+        return boardsResponse.boards
     }
     
     private func departuresURL(location: CLLocationCoordinate2D) -> URL? {
