@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D140A60829DF8CC3009E42B5 /* TravelHEREApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A60729DF8CC3009E42B5 /* TravelHEREApp.swift */; };
-		D140A60A29DF8CC3009E42B5 /* DeparturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A60929DF8CC3009E42B5 /* DeparturesView.swift */; };
+		D140A60A29DF8CC3009E42B5 /* NearbyStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A60929DF8CC3009E42B5 /* NearbyStationsView.swift */; };
 		D140A60C29DF8CC4009E42B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D140A60B29DF8CC4009E42B5 /* Assets.xcassets */; };
 		D140A60F29DF8CC4009E42B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D140A60E29DF8CC4009E42B5 /* Preview Assets.xcassets */; };
 		D140A61929DF8CC4009E42B5 /* TravelHERETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A61829DF8CC4009E42B5 /* TravelHERETests.swift */; };
@@ -19,6 +19,12 @@
 		D140A63929DFA3C0009E42B5 /* HereService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63829DFA3C0009E42B5 /* HereService.swift */; };
 		D140A63F29DFAB23009E42B5 /* BoardResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A63E29DFAB23009E42B5 /* BoardResponse.swift */; };
 		D140A64129DFB905009E42B5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64029DFB905009E42B5 /* APIError.swift */; };
+		D140A64329DFD27C009E42B5 /* SystemLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64229DFD27C009E42B5 /* SystemLocationButton.swift */; };
+		D140A64529DFD60D009E42B5 /* PlaceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64429DFD60D009E42B5 /* PlaceLabel.swift */; };
+		D140A64729DFDD73009E42B5 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64629DFDD73009E42B5 /* StationView.swift */; };
+		D140A64929DFE3B9009E42B5 /* DepartureLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64829DFE3B9009E42B5 /* DepartureLabel.swift */; };
+		D140A64B29DFE5FF009E42B5 /* StationView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */; };
+		D140A64D29DFE8C8009E42B5 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +47,7 @@
 /* Begin PBXFileReference section */
 		D140A60429DF8CC3009E42B5 /* TravelHERE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelHERE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D140A60729DF8CC3009E42B5 /* TravelHEREApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelHEREApp.swift; sourceTree = "<group>"; };
-		D140A60929DF8CC3009E42B5 /* DeparturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesView.swift; sourceTree = "<group>"; };
+		D140A60929DF8CC3009E42B5 /* NearbyStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationsView.swift; sourceTree = "<group>"; };
 		D140A60B29DF8CC4009E42B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D140A60E29DF8CC4009E42B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D140A61429DF8CC4009E42B5 /* TravelHERETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelHERETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +60,12 @@
 		D140A63829DFA3C0009E42B5 /* HereService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereService.swift; sourceTree = "<group>"; };
 		D140A63E29DFAB23009E42B5 /* BoardResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardResponse.swift; sourceTree = "<group>"; };
 		D140A64029DFB905009E42B5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D140A64229DFD27C009E42B5 /* SystemLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLocationButton.swift; sourceTree = "<group>"; };
+		D140A64429DFD60D009E42B5 /* PlaceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLabel.swift; sourceTree = "<group>"; };
+		D140A64629DFDD73009E42B5 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		D140A64829DFE3B9009E42B5 /* DepartureLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureLabel.swift; sourceTree = "<group>"; };
+		D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.ViewModel.swift; sourceTree = "<group>"; };
+		D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D140A63E29DFAB23009E42B5 /* BoardResponse.swift */,
+				D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */,
 				D140A64029DFB905009E42B5 /* APIError.swift */,
 			);
 			path = Models;
@@ -153,7 +166,11 @@
 		D140A63229DF97DD009E42B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D140A60929DF8CC3009E42B5 /* DeparturesView.swift */,
+				D140A60929DF8CC3009E42B5 /* NearbyStationsView.swift */,
+				D140A64629DFDD73009E42B5 /* StationView.swift */,
+				D140A64429DFD60D009E42B5 /* PlaceLabel.swift */,
+				D140A64229DFD27C009E42B5 /* SystemLocationButton.swift */,
+				D140A64829DFE3B9009E42B5 /* DepartureLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D140A63429DF982B009E42B5 /* DeparturesView.ViewModel.swift */,
+				D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -315,10 +333,16 @@
 				D140A63729DF9941009E42B5 /* LocationService.swift in Sources */,
 				D140A63F29DFAB23009E42B5 /* BoardResponse.swift in Sources */,
 				D140A63529DF982B009E42B5 /* DeparturesView.ViewModel.swift in Sources */,
+				D140A64929DFE3B9009E42B5 /* DepartureLabel.swift in Sources */,
 				D140A63929DFA3C0009E42B5 /* HereService.swift in Sources */,
-				D140A60A29DF8CC3009E42B5 /* DeparturesView.swift in Sources */,
+				D140A64D29DFE8C8009E42B5 /* WeatherResponse.swift in Sources */,
+				D140A64B29DFE5FF009E42B5 /* StationView.ViewModel.swift in Sources */,
+				D140A60A29DF8CC3009E42B5 /* NearbyStationsView.swift in Sources */,
 				D140A60829DF8CC3009E42B5 /* TravelHEREApp.swift in Sources */,
 				D140A64129DFB905009E42B5 /* APIError.swift in Sources */,
+				D140A64329DFD27C009E42B5 /* SystemLocationButton.swift in Sources */,
+				D140A64529DFD60D009E42B5 /* PlaceLabel.swift in Sources */,
+				D140A64729DFDD73009E42B5 /* StationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

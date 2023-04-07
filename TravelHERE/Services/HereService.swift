@@ -39,6 +39,39 @@ final class HereService {
         return boardsResponse.boards
     }
     
+    func getWeatherReport(location: CLLocationCoordinate2D) async throws -> Observation? {
+        guard let weatherReportURL = weatherReportURL(location: location) else { throw APIError.badURL }
+        
+        let (data, response) = try await URLSession.shared.data(from: weatherReportURL)
+        
+        let statusCode = (response as? HTTPURLResponse)?.statusCode
+        guard statusCode == 200 else { throw APIError.badStatusCode(statusCode) }
+        
+        guard !data.isEmpty else { throw APIError.emptyData }
+        
+        if let string = String(data: data, encoding: .utf8) {
+            print("Response data: \(string)")
+        } else {
+            print("Unable to convert response data to string")
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let weatherResponse = try decoder.decode(WeatherResponse.self, from: data)
+        return weatherResponse.places.first?.observations.first
+    }
+    
+    private func weatherReportURL(location: CLLocationCoordinate2D) -> URL? {
+        var components = baseURLComponents(host: weatherHost)
+        components.path = "/v3/report"
+        components.queryItems?.append(contentsOf: [
+            URLQueryItem(name: "location", value: "\(location.latitude),\(location.longitude)"),
+            URLQueryItem(name: "products", value: "observation"),
+            URLQueryItem(name: "oneObservation", value: "true")
+        ])
+        return components.url
+    }
+    
     private func departuresURL(location: CLLocationCoordinate2D) -> URL? {
         var components = baseURLComponents(host: transitHost)
         components.path = "/v8/departures"

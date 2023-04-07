@@ -11,7 +11,7 @@ import SwiftUI
 struct TravelHEREApp: App {
     var body: some Scene {
         WindowGroup {
-            DeparturesView()
+            NearbyStationsView()
         }
     }
 }

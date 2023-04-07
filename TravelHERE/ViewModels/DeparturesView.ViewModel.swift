@@ -1,5 +1,5 @@
 //
-//  DeparturesView.ViewModel.swift
+//  NearbyStationsView.ViewModel.swift
 //  TravelHERE
 //
 //  Created by Jordi Kitto on 7/4/2023.
@@ -9,11 +9,11 @@ import Foundation
 import Combine
 import CoreLocation
 
-extension DeparturesView {
+extension NearbyStationsView {
     final class ViewModel: ObservableObject {
         @Published private(set) var locationManager: LocationService
         @Published private(set) var state: State
-        @Published private(set) var places: [Place]
+        @Published private(set) var boards: [Board]
         
         private let hereService: HereService
         private var cancellables = Set<AnyCancellable>()
@@ -24,7 +24,7 @@ extension DeparturesView {
         ) {
             self.locationManager = locationManager
             self.hereService = hereService
-            self.places = []
+            self.boards = []
             self.state = .locationUnknown
             
             locationManager.$location
@@ -44,7 +44,7 @@ extension DeparturesView {
             Task {
                 do {
                     let boards = try await hereService.getDepartures(location: location)
-                    await MainActor.run { places = boards.map(\.place) }
+                    await MainActor.run { self.boards = boards }
                 } catch {
                     if let localisedError = error as? LocalizedError,
                        let errorDescription = localisedError.errorDescription
@@ -61,12 +61,12 @@ extension DeparturesView {
     }
 }
 
-extension DeparturesView.ViewModel {
-    enum State {
+extension NearbyStationsView.ViewModel {
+    enum State: Equatable {
         case locationUnknown
         case loading
         case loaded
-        case error(Error)
+        case error(String)
         
         var isLoading: Bool {
             switch self {
