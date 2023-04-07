@@ -1,5 +1,5 @@
 //
-//  LocationManager.swift
+//  LocationService.swift
 //  TravelHERE
 //
 //  Created by Jordi Kitto on 7/4/2023.
@@ -8,12 +8,14 @@
 import Foundation
 import CoreLocation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
+    static let shared = LocationService()
+    
     let manager = CLLocationManager()
 
     @Published var location: CLLocationCoordinate2D?
 
-    override init() {
+    override private init() {
         super.init()
         manager.delegate = self
     }

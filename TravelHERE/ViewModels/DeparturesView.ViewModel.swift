@@ -11,13 +11,18 @@ import CoreLocation
 
 extension DeparturesView {
     final class ViewModel: ObservableObject {
-        @Published private(set) var locationManager: LocationManager
+        @Published private(set) var locationManager: LocationService
         @Published private(set) var state: State
         
+        private let hereService: HereService
         private var cancellables = Set<AnyCancellable>()
         
-        init() {
-            self.locationManager = LocationManager()
+        init(
+            locationManager: LocationService = .shared,
+            hereService: HereService = .shared
+        ) {
+            self.locationManager = locationManager
+            self.hereService = hereService
             self.state = .locationUnknown
             
             locationManager.$location
@@ -33,40 +38,16 @@ extension DeparturesView {
             locationManager.requestLocation()
         }
         
-        func requestDepartures(location: CLLocationCoordinate2D) {
-            state = .loading
-            
-            var components = URLComponents()
-            components.scheme = "https"
-            components.host = "transit.hereapi.com"
-            components.path = "/v8/departures"
-            components.queryItems = [
-                URLQueryItem(name: "apiKey", value: "jV07PIw_7_xqnkJSk6-OHWLXdzCYNZjBOn8zKt-1uaA"),
-                URLQueryItem(name: "in", value: "\(location.latitude),\(location.longitude)"),
-                URLQueryItem(name: "maxPlaces", value: "20")
-            ]
-            
-            if let url = components.url {
-                let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                    if let error = error {
-                        print("Error: \(error)")
-                        return
-                    }
-                    guard let httpResponse = response as? HTTPURLResponse,
-                        (200...299).contains(httpResponse.statusCode) else {
-                        print("Unexpected response status code")
-                        return
-                    }
-                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                        print("Response: \(dataString)")
-                        DispatchQueue.main.async {
-                            self.state = .loaded
-                        }
-                    }
+        private func requestDepartures(location: CLLocationCoordinate2D) {
+            Task {
+                do {
+                    let boards = try await hereService.getDepartures(location: location)
+                    print(boards)
+                } catch {
+                    print(error.localizedDescription)
                 }
-                task.resume()
-            } else {
-                print("Invalid URL")
+                
+                await MainActor.run { state = .loaded }
             }
         }
     }
