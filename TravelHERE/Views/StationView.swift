@@ -17,23 +17,35 @@ struct StationView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Map(coordinateRegion: .constant(viewModel.mapRegion), annotationItems: [viewModel.place]) { mapPlace in
+            Map(
+                coordinateRegion: .constant(viewModel.mapRegion),
+                interactionModes: [],
+                annotationItems: [viewModel.place]
+            ) { mapPlace in
                 MapMarker(coordinate: mapPlace.location.coordinate)
             }
             .frame(maxHeight: 200)
             .overlay(alignment: .bottomTrailing) {
                 if let observation = viewModel.weatherObservation {
-                    Text(observation.description)
-                        .padding(10)
-                        .background(
-                            .thickMaterial,
-                            in: RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        )
-                        .padding(5)
-                        .transition(.move(edge: .bottom))
-                        .animation(.easeOut, value: viewModel.weatherObservation)
+                    HStack {
+                        AsyncImage(url: URL(string: observation.iconLink)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(maxWidth: 30, maxHeight: 30)
+                        Text(observation.description)
+                    }
+                    .padding(10)
+                    .background(
+                        .thickMaterial,
+                        in: RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    )
+                    .padding(5)
+                    .transition(.move(edge: .bottom))
                 }
             }
+            .animation(.easeOut, value: viewModel.weatherObservation)
             
             Form {
                 Section("Departures") {
