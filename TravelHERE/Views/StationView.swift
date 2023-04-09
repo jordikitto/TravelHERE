@@ -55,7 +55,7 @@ struct StationView_Previews: PreviewProvider {
             StationView(
                 viewModel: .init(
                     place: .wynyard,
-                    departures: [.mock(), .mock(), .mock()]
+                    departures: [.preview, .preview, .preview]
                 )
             )
         }

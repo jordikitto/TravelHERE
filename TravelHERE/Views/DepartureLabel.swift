@@ -28,7 +28,7 @@ struct DepartureLabel: View {
 
 struct DepartureLabel_Previews: PreviewProvider {
     static var previews: some View {
-        DepartureLabel(departure: .mock())
+        DepartureLabel(departure: .preview)
             .padding()
     }
 }
