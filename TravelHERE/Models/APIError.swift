@@ -12,6 +12,7 @@ enum APIError: LocalizedError {
     case badStatusCode(Int?)
     case responseDecodeFailure
     case emptyData
+    case invalidHTTPResponse
     
     var errorDescription: String? {
         switch self {
@@ -19,6 +20,7 @@ enum APIError: LocalizedError {
         case .badStatusCode(let code): return "\(String(describing: code)) response code from server."
         case .responseDecodeFailure: return "Unable to decode response."
         case .emptyData: return "Server returned empty data."
+        case .invalidHTTPResponse: return "HTTP response was not valid."
         }
     }
 }

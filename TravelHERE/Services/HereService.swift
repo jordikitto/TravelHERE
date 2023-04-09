@@ -19,41 +19,17 @@ final class HereService {
     
     func getDepartures(location: CLLocationCoordinate2D) async throws -> [Board] {
         guard let departuresURL = departuresURL(location: location) else { throw APIError.badURL }
-        
-        let (data, response) = try await URLSession.shared.data(from: departuresURL)
-        
-        let statusCode = (response as? HTTPURLResponse)?.statusCode
-        guard statusCode == 200 else { throw APIError.badStatusCode(statusCode) }
-        
-        guard !data.isEmpty else { throw APIError.emptyData }
-        
-        if let string = String(data: data, encoding: .utf8) {
-            print("Response data: \(string)")
-        } else {
-            print("Unable to convert response data to string")
-        }
+        let data = try await getData(from: departuresURL)
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         let boardsResponse = try decoder.decode(BoardResponse.self, from: data)
         return boardsResponse.boards
     }
-    
+
     func getWeatherReport(location: CLLocationCoordinate2D) async throws -> Observation? {
         guard let weatherReportURL = weatherReportURL(location: location) else { throw APIError.badURL }
-        
-        let (data, response) = try await URLSession.shared.data(from: weatherReportURL)
-        
-        let statusCode = (response as? HTTPURLResponse)?.statusCode
-        guard statusCode == 200 else { throw APIError.badStatusCode(statusCode) }
-        
-        guard !data.isEmpty else { throw APIError.emptyData }
-        
-        if let string = String(data: data, encoding: .utf8) {
-            print("Response data: \(string)")
-        } else {
-            print("Unable to convert response data to string")
-        }
+        let data = try await getData(from: weatherReportURL)
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
@@ -61,6 +37,20 @@ final class HereService {
         return weatherResponse.places.first?.observations.first
     }
     
+    private func getData(from url: URL) async throws -> Data {
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw APIError.invalidHTTPResponse
+        }
+        guard httpResponse.statusCode == 200 else {
+            throw APIError.badStatusCode(httpResponse.statusCode)
+        }
+        guard !data.isEmpty else {
+            throw APIError.emptyData
+        }
+        return data
+    }
+
     private func weatherReportURL(location: CLLocationCoordinate2D) -> URL? {
         var components = baseURLComponents(host: weatherHost)
         components.path = "/v3/report"
