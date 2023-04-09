@@ -37,7 +37,8 @@ extension NearbyStationsView {
         
         func requestLocation() {
             state = .loading
-            locationManager.requestLocation()
+            // Since LocationButton will request .authorizedWhenInUse status,
+            // we don't need to request anything from LocationService
         }
         
         private func requestDepartures(location: CLLocationCoordinate2D) {
@@ -67,12 +68,5 @@ extension NearbyStationsView.ViewModel {
         case loading
         case loaded
         case error(String)
-        
-        var isLoading: Bool {
-            switch self {
-            case .loading: return true
-            default: return false
-            }
-        }
     }
 }

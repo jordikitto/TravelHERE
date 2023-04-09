@@ -26,6 +26,8 @@
 		D140A64B29DFE5FF009E42B5 /* StationView.ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */; };
 		D140A64D29DFE8C8009E42B5 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */; };
 		D140A64F29DFEDFE009E42B5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A64E29DFEDFE009E42B5 /* Color+Extension.swift */; };
+		D140A65129E36BC1009E42B5 /* ObservationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A65029E36BC1009E42B5 /* ObservationLabel.swift */; };
+		D140A65329E37108009E42B5 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140A65229E37108009E42B5 /* LocationError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		D140A64A29DFE5FF009E42B5 /* StationView.ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.ViewModel.swift; sourceTree = "<group>"; };
 		D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		D140A64E29DFEDFE009E42B5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		D140A65029E36BC1009E42B5 /* ObservationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservationLabel.swift; sourceTree = "<group>"; };
+		D140A65229E37108009E42B5 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 				D140A63E29DFAB23009E42B5 /* BoardResponse.swift */,
 				D140A64C29DFE8C8009E42B5 /* WeatherResponse.swift */,
 				D140A64029DFB905009E42B5 /* APIError.swift */,
+				D140A65229E37108009E42B5 /* LocationError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,8 +176,9 @@
 				D140A60929DF8CC3009E42B5 /* NearbyStationsView.swift */,
 				D140A64629DFDD73009E42B5 /* StationView.swift */,
 				D140A64429DFD60D009E42B5 /* PlaceLabel.swift */,
-				D140A64229DFD27C009E42B5 /* SystemLocationButton.swift */,
 				D140A64829DFE3B9009E42B5 /* DepartureLabel.swift */,
+				D140A65029E36BC1009E42B5 /* ObservationLabel.swift */,
+				D140A64229DFD27C009E42B5 /* SystemLocationButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D140A63729DF9941009E42B5 /* LocationService.swift in Sources */,
+				D140A65329E37108009E42B5 /* LocationError.swift in Sources */,
 				D140A64F29DFEDFE009E42B5 /* Color+Extension.swift in Sources */,
 				D140A63F29DFAB23009E42B5 /* BoardResponse.swift in Sources */,
 				D140A63529DF982B009E42B5 /* DeparturesView.ViewModel.swift in Sources */,
@@ -345,6 +352,7 @@
 				D140A60829DF8CC3009E42B5 /* TravelHEREApp.swift in Sources */,
 				D140A64129DFB905009E42B5 /* APIError.swift in Sources */,
 				D140A64329DFD27C009E42B5 /* SystemLocationButton.swift in Sources */,
+				D140A65129E36BC1009E42B5 /* ObservationLabel.swift in Sources */,
 				D140A64529DFD60D009E42B5 /* PlaceLabel.swift in Sources */,
 				D140A64729DFDD73009E42B5 /* StationView.swift in Sources */,
 			);

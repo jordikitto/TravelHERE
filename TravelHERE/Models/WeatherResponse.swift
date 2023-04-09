@@ -25,4 +25,18 @@ struct Observation: Decodable, Equatable {
     let iconId: Int
     let iconName: String
     let iconLink: String
+    
+    static var preview: Observation {
+        .init(
+            daylight: "day",
+            description: "Passing clouds. Cool.",
+            skyInfo: 7,
+            skyDesc: "Passing clouds",
+            temperature: 13,
+            temperatureDesc: "Cool",
+            iconId: 2,
+            iconName: "mostly_sunny",
+            iconLink: "https://weather.hereapi.com/static/weather/icon/2.png"
+        )
+    }
 }

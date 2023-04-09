@@ -14,18 +14,28 @@ final class LocationService: NSObject, ObservableObject, CLLocationManagerDelega
     let manager = CLLocationManager()
 
     @Published var location: CLLocationCoordinate2D?
+    @Published var locationError: LocationError?
 
     override private init() {
         super.init()
         manager.delegate = self
     }
 
-    func requestLocation() {
-        manager.requestLocation()
-    }
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first?.coordinate
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .authorizedWhenInUse, .authorizedAlways:
+            manager.requestLocation()
+        case .denied, .restricted:
+            print("ERROR they don't want")
+        case .notDetermined:
+            break
+        @unknown default:
+            print("ERROR unknown authorisation status")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

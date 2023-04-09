@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocationUI
 
 struct NearbyStationsView: View {
-    @StateObject var viewModel: ViewModel = .init()
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         NavigationView {

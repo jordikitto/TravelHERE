@@ -77,7 +77,8 @@ final class HereService {
         components.path = "/v8/departures"
         components.queryItems?.append(contentsOf: [
             URLQueryItem(name: "in", value: "\(location.latitude),\(location.longitude)"),
-            URLQueryItem(name: "maxPlaces", value: "20")
+            URLQueryItem(name: "maxPlaces", value: "20"),
+            URLQueryItem(name: "maxPerBoard", value: "10")
         ])
         return components.url
     }

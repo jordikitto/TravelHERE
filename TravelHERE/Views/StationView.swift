@@ -11,10 +11,6 @@ import MapKit
 struct StationView: View {
     @StateObject var viewModel: ViewModel
     
-    init(viewModel: ViewModel) {
-        self._viewModel = .init(wrappedValue: viewModel)
-    }
-    
     var body: some View {
         VStack(spacing: 0) {
             Map(
@@ -27,22 +23,9 @@ struct StationView: View {
             .frame(maxHeight: 200)
             .overlay(alignment: .bottomTrailing) {
                 if let observation = viewModel.weatherObservation {
-                    HStack {
-                        AsyncImage(url: URL(string: observation.iconLink)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(maxWidth: 30, maxHeight: 30)
-                        Text(observation.description)
-                    }
-                    .padding(10)
-                    .background(
-                        .thickMaterial,
-                        in: RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    )
-                    .padding(5)
-                    .transition(.move(edge: .bottom))
+                    ObservationLabel(observation: observation)
+                        .padding(5)
+                        .transition(.move(edge: .bottom))
                 }
             }
             .animation(.easeOut, value: viewModel.weatherObservation)
