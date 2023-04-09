@@ -32,8 +32,12 @@ struct StationView: View {
             
             Form {
                 Section("Departures") {
-                    List(viewModel.departures) { departure in
-                        DepartureLabel(departure: departure)
+                    if viewModel.departures.isEmpty {
+                        Text("No departures currently running.")
+                    } else {
+                        List(viewModel.departures) { departure in
+                            DepartureLabel(departure: departure)
+                        }
                     }
                 }
             }

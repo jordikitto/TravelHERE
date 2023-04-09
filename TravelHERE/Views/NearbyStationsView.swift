@@ -15,7 +15,12 @@ struct NearbyStationsView: View {
         NavigationView {
             Form {
                 if viewModel.boards.isEmpty {
-                    Text("Tap *Current Location* to get started")
+                    switch viewModel.state {
+                    case .awaitingRequest, .loading:
+                        Text("Tap *Current Location* to get started.")
+                    case .loaded:
+                        Text("There are no transit stations near you.")
+                    }
                 } else {
                     List(viewModel.boards) { board in
                         NavigationLink {
@@ -29,21 +34,24 @@ struct NearbyStationsView: View {
             .navigationTitle("Nearby Stations")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    switch viewModel.state {
-                    case .locationUnknown:
-                        SystemLocationButton {
-                            viewModel.requestLocation()
+                    if viewModel.state != .loaded {
+                        HStack(spacing: 10) {
+                            SystemLocationButton {
+                                viewModel.requestLocation()
+                            }
+                            .disabled(viewModel.state != .awaitingRequest)
+                            if viewModel.state == .loading { ProgressView() }
                         }
-                    case .loading:
-                        ProgressView()
-                    case .error(let message):
-                        Text(message)
-                            .foregroundColor(.red)
-                    case .loaded:
-                        EmptyView()
                     }
                 }
             }
+            .alert("Error Occurred", isPresented: $viewModel.isPresentedLocalisedError) {
+                Button("Dismiss") { viewModel.isPresentedLocalisedError = false }
+            } message: {
+                Text(viewModel.localisedError?.errorDescription ?? "Unknown error. Please contact support.")
+            }
+            .animation(.easeOut, value: viewModel.state)
+
         }
     }
 }

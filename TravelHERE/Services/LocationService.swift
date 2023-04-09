@@ -30,15 +30,15 @@ final class LocationService: NSObject, ObservableObject, CLLocationManagerDelega
         case .authorizedWhenInUse, .authorizedAlways:
             manager.requestLocation()
         case .denied, .restricted:
-            print("ERROR they don't want")
+            locationError = .accessDenied
         case .notDetermined:
             break
         @unknown default:
-            print("ERROR unknown authorisation status")
+            locationError = .unknownAuthorisationStatus
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
+        locationError = .failure(error.localizedDescription)
     }
 }
