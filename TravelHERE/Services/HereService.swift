@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+/// Handles getting data from HERE API.
 final class HereService {
     static let shared = HereService()
     

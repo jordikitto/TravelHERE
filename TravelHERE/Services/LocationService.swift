@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+/// Handles getting user location with `CoreLocation`
 final class LocationService: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = LocationService()
     
