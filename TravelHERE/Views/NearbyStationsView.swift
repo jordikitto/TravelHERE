@@ -34,14 +34,12 @@ struct NearbyStationsView: View {
             .navigationTitle("Nearby Stations")
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    if viewModel.state != .loaded {
-                        HStack(spacing: 10) {
-                            SystemLocationButton {
-                                viewModel.requestLocation()
-                            }
-                            .disabled(viewModel.state != .awaitingRequest)
-                            if viewModel.state == .loading { ProgressView() }
+                    HStack(spacing: 10) {
+                        SystemLocationButton {
+                            viewModel.requestLocation()
                         }
+                        .disabled(viewModel.state == .loading)
+                        if viewModel.state == .loading { ProgressView() }
                     }
                 }
             }

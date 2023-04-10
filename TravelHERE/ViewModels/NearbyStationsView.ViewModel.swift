@@ -67,9 +67,7 @@ extension NearbyStationsView {
         
         func requestLocation() {
             state = .loading
-            
-            // Since LocationButton will request .authorizedWhenInUse status,
-            // we don't need to request anything from LocationService
+            locationManager.requestLocation()
             
             // Start timeout, for issues with internet or when user taps "Not now".
             requestTimeout = Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { [weak self] _ in
