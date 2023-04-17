@@ -1,6 +1,6 @@
 This repository is my solution to a coding challenge.
 
-The following is the challenge I was given, it is written **verbatim** with only identifying information removed.
+The following is the challenge I was given, it is written **verbatim**.
 
 ----
 
