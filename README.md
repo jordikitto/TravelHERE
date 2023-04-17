@@ -1,3 +1,9 @@
+This repository is my solution to a coding challenge.
+
+The following is the challenge I was given, it is written **verbatim** with only identifying information removed.
+
+----
+
 # The Ranking iOS/Android dev test
 
 This repository is aimed to test future iOS/Android developers skills. We hope you enjoy as much as we do coding and pushing your skills with new challenges.
